@@ -846,8 +846,7 @@ module cover(){
 
 
 *threadAssembly();
-translate([4,-14,-1])rotate([-90,0,45])Frame();
-translate([0,-12,-3])rotate([0,45,-90])Frame();
+
 *square([5,10]);
 *cover();
 *union(){
@@ -859,10 +858,15 @@ translate([0,-12,-3])rotate([0,45,-90])Frame();
 *circuit();
 *staticDampenerA();
 *staticDampenerB();
-*StaticMagnetHolder();
-translate([-1,-17,0])rotate([-90,0,90])BFrameHolder();
 *LaserMountB();
 
+
+%union(){
+translate([-20,-18,-12])rotate([90,-45,90])StaticMagnetHolder();
+translate([13,-9,22])rotate([0,0,45])StaticMagnetHolder();
+translate([4,-14,-1])rotate([-90,0,45])Frame();
+translate([0,-12,-3])rotate([0,45,-90])Frame();
+translate([-1,-17,0])rotate([-90,0,90])BFrameHolder();
 //Base:
 difference(){
 	union(){
@@ -875,4 +879,5 @@ difference(){
 	translate([mirrorsToBHolder_X,-mirrorAToLaserTrack_Y])
 			rotate(-45+90)
 				MirrorASlots();
+}
 }
